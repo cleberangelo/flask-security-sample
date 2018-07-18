@@ -1,0 +1,1 @@
+curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "First Name", "password": "PassWord1", "email": "first@name.com"}' http://127.0.0.1:5000/create

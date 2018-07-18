@@ -1,0 +1,46 @@
+{% extends 'layout/internal.html' %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+
+<form action="{{ url_for('pessoas.save') }}" method="post">
+    <div class="form-group">
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" id="name" name="name"/>
+    </div>
+    <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="text" class="form-control" id="password" name="password"/>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+<hr/>
+<table class="table">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>pass</th>
+        <th>role</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for person in persons %}
+    <tr>
+        <td>{{ person.id }}</td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.email }}</td>
+        <td>{{ person.password_hash }}</td>
+        <td>{{ person.role }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

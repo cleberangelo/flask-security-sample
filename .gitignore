@@ -1,0 +1,5 @@
+.vscode/*
+.idea/*
+venv/*
+projeto/testes.db
+*__pycache_**
