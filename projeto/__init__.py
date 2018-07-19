@@ -18,7 +18,23 @@ db.init_app(app)
 # def create_user():
 #     db.drop_all()
 #     db.create_all()
-#     users.create_user(email='user@mail.com', password=hash_password('password'))
+#
+#     # Cria regras MASTER e USER
+#     users.find_or_create_role(name='MASTER', description='Administrador')
+#     users.find_or_create_role(name='USER', description='Usuário')
+#
+#     # Cria usuários admin e test
+#     if not users.get_user('admin@mail.com'):
+#         users.create_user(email='admin@mail.com', password=hash_password('admin'))
+#     if not users.get_user('test@mail.com'):
+#         users.create_user(email='test@mail.com', password=hash_password('test'))
+#
+#     db.session.commit()
+#
+#     # Atribui regra MASTER -> admin e USER -> test
+#     users.add_role_to_user('admin@mail.com', 'MASTER')
+#     users.add_role_to_user('test@mail.com', 'USER')
+#
 #     db.session.commit()
 
 
