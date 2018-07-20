@@ -16,27 +16,31 @@ db.init_app(app)
 # Cria um usuário para acessar o sistema. Descomentar ao rodar pela primeira vez, depois comentar
 # @app.before_first_request
 # def create_user():
-#     db.drop_all()
-#     db.create_all()
-#
-#     # Cria regras MASTER e USER
-#     users.find_or_create_role(name='MASTER', description='Administrador')
-#     users.find_or_create_role(name='USER', description='Usuário')
-#
-#     # Cria usuários admin e test
-#     if not users.get_user('admin@mail.com'):
-#         users.create_user(email='admin@mail.com', password=hash_password('admin'))
-#     if not users.get_user('test@mail.com'):
-#         users.create_user(email='test@mail.com', password=hash_password('test'))
-#
-#     db.session.commit()
-#
-#     # Atribui regra MASTER -> admin e USER -> test
-#     users.add_role_to_user('admin@mail.com', 'MASTER')
-#     users.add_role_to_user('test@mail.com', 'USER')
-#
-#     db.session.commit()
+    # db.drop_all()
+    # db.create_all()
+    #
+    # # Cria regras MASTER e USER
+    # users.find_or_create_role(name='MASTER', description='Administrador')
+    # users.find_or_create_role(name='USER', description='Usuário')
+    #
+    # # Cria usuários admin e test
+    # if not users.get_user('admin@mail.com'):
+    #     users.create_user(email='admin@mail.com', password=hash_password('admin'))
+    # if not users.get_user('test@mail.com'):
+    #     users.create_user(email='test@mail.com', password=hash_password('test'))
+    #
+    # db.session.commit()
+    #
+    # # Atribui regra MASTER -> admin e USER -> test
+    # users.add_role_to_user('admin@mail.com', 'MASTER')
+    # users.add_role_to_user('test@mail.com', 'USER')
+    #
+    # db.session.commit()
 
+    # Executar posteriormente
+    # user = users.get_user('test@mail.com')
+    # users.deactivate_user(user)
+    # db.session.commit()
 
 @app.errorhandler(404)
 def page_not_found(error):
